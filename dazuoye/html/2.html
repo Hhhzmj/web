@@ -100,21 +100,21 @@
 				<div id="you">
 					<p class="p1">韩国RE:CIPE水晶清爽防水防晒喷露SPF50 150m/瓶</p>
 					<p class="p2"> 【限购3件】超透明无痕防晒，防水防汗定妆，保湿降温不黏腻。水晶防晒喷露，嚷后皮肤水润，不油，不留白，更不会像防晒霜那样抹不开，非常实用，开始存货吧。</p>
-					<p class="p3">价格<span class="sp1">￥71</span><span class="sp2">￥150</span></p>
+					<p class="p3">价格<span class="sp1">￥71</span><span class="sp2" style="text-decoration: line-through;">￥150</span></p>
 					<p class="p4"><img src="../img/ss_09.jpg" alt=""></p>
-					<p id="pp5">化妆品净含量<span class="sp1" id="ground">150ml</span><span class="sp2">200ml</span></p>
+					<p id="pp5">化妆品净含量<span class="sp1" id="duikuang">150ml</span><span class="sp2">200ml</span></p>
 					<div id="num">
 						<div id="shu">数量</div>
-						<div id="les">-</div>
+						<div id="jian">-</div>
 						<div><input type="text" id="shu" value="1"></div>
-						<div id="mor">+</div>
+						<div id="jia">+</div>
 						<div id="kc">件&nbsp;(库存5件)</div>
 					</div>
 					<p><img src="../img/oo_03.jpg" alt=""></p>
-					<p class="p6">您已选择<span id="selected">"150ml"</span></p>
+					<p class="p6">您已选择<span id="tihuan">"150ml"</span></p>
 
 					<div id="pay">立即购买</div>
-					<div id="wait">加入购物车</div>
+					<div id="jrgwc">加入购物车</div>
 				</div>
 				<div id="rig"><img src="../img/ww_07.jpg" alt=""></div>
 			</div>
@@ -203,22 +203,21 @@
 		<div id="pa">去购物车结算</div>
 	</div>
 	<script>
-		var imgs = document.getElementById("mtu");//.children;
+		var imgs = document.getElementById("mtu").children;
 		var fdj = document.getElementById("fdj");
 		var rtu = document.getElementById("rtu");
 		var ltu = document.getElementById("ltu");
-		var spans = document.getElementById("pp5");.children;
-		var ground = document.getElementById("ground");
-		// 加入购物车
+		var spans = document.getElementById("pp5").children;
+		var duikuang = document.getElementById("duikuang");
 		var join = document.getElementById("join");
 		var exit = document.getElementById("exit");
 		var cont = document.getElementById("cont");
-		var wait = document.getElementById("wait");
+		var jrgwc = document.getElementById("jrgwc");
 		var pa = document.getElementById("pa");
-		wait.onclick = function(){
+		jrgwc.onclick = function(){
 			join.style.display = 'block';
 		}
-		wait.onmouseover = function(){
+		jrgwc.onmouseover = function(){
 			this.style.cursor = "pointer";
 		}
 		exit.onclick = function(){
@@ -238,7 +237,6 @@
 			this.style.cursor = "pointer";
 		}
 
-		// 放大镜
 		var fdj2 = document.getElementById("fdj2");
 		var mid1 = document.getElementById("mid1");
 		var slider = document.getElementById("slider");
@@ -271,7 +269,6 @@
 			Bimg.style.top = ( oT/oMaxh ) * oBmaxh + 'px'
 		}
 		
-		// 图片的切换
 		for(var i=0;i<imgs.length;i++){
 			imgs[i].idx = i;
 			imgs[i].onclick = function(){
@@ -306,8 +303,7 @@
 			fdj2.innerHTML="<img id='Bimg' src='../img/pp1.jpeg' alt='' width='1000px' height='1000px'> ";
 		}
 
-		// 规格的切换
-		var selected = $('selected');
+		var tihuan = document.getElementById("tihuan");
 		for(var i=0;i<spans.length;i++){
 			spans[i].onmouseover = function(){
 				this.style.cursor = "pointer";
@@ -319,46 +315,10 @@
 				for(var j=0;j<spans.length;j++){
 					spans[j].id = "";
 				}
-				this.id = "ground";
-				this.idx==0?selected.innerHTML=`"150ml"`:selected.innerHTML=`"200ml"`;
+				this.id = "duikuang";
+				this.idx==0?tihuan.innerHTML=`"150ml"`:tihuan.innerHTML=`"200ml"`;
 			}
 		}
-
-		// 数量的切换
-		var les = document.getElementById("les");
-		var shu = document.getElementById("shu");
-		var mor = document.getElementById("mor");
-		var index = shu.value;
-		
-		les.onmouseover = function(){
-			index==1?this.style.cursor="not-allowed":this.style.cursor = "pointer";
-		}
-		les.onclick = function(){
-			if(index<=1){
-				return;
-			}
-			index--;
-			if(index==1){
-				this.style.cursor="not-allowed";
-			}
-			shu.value = index;
-		}
-		mor.onmouseover = function(){
-			index==5?this.style.cursor="not-allowed":this.style.cursor = "pointer";
-		}
-		mor.onclick = function(){
-			if(index>=5){
-				return;
-			}
-			index++;
-			if(index==5){
-				this.style.cursor="not-allowed";
-			}
-			shu.value = index;
-		}
-		
-		// 加入购物车
-
 	</script>
 </body>
 </html>
